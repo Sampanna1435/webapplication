@@ -83,7 +83,7 @@
         }
 
         nav ul img {
-            width: 80%;
+            width: 70%;
         }
 
         ul {
@@ -187,7 +187,6 @@
             border-radius: 30px;
             background-color: #46908d;
             color: #333;
-            cursor: pointer;
 
         }
 
@@ -217,7 +216,7 @@
     <div class="center">
         <form id="search-form">
             <div class="search-container">
-                <input type="search" id="ytSearch" value="MRBeast" />
+                <input type="search" id="ytSearch" value="MR Beast" />
                 <button id="searchBtn"><img src="./image/search.png" alt=""></button>
             </div>
         </form>
@@ -256,12 +255,11 @@
             </li>
             <li>
                 <select id="MovieId" class="ytMovie" name="ytMovie">
-                    <option value="0e3GPea1Tyg">Squid Game | MRBeast</option>
-                    <option value="zxYjTTXc-J8">Last To Leave | MRBeast</option>
-                    <option value="1WEAJ-DFkHE">Expensive Plane Travel | MRBeast</option>
-                    <option value="FM7Z-Xq8Drc">Age1 VS Age100 | MRBeast</option>
-                    <option value="iogcY_4xGjo">Expensive Hotel Room | MRBeast</option>
-                    <option value="9bqk6ZUsKyA">50Hrs Inside The Land | MRBeast</option>
+                    <option value="0e3GPea1Tyg">mrbeast#1</option>
+                    <option value="zxYjTTXc-J8">mrbeast#2</option>
+                    <option value="1WEAJ-DFkHE">mrbeast#3</option>
+                    <option value="FM7Z-Xq8Drc">mrbeast#4</option>
+                    <option value="iogcY_4xGjo">mrbeast#5</option>
                 </select>
             </li>
         </ul>
@@ -470,35 +468,14 @@
                 });
         }
         ///
-        document.addEventListener("DOMContentLoaded", function () {
-            var searchButton = document.getElementById("searchBtn");
-            var searchResultsList = document.getElementById("searchResults");
+        const ytSearchBtn = document.querySelector("#searchBtn");
+        ytSearchBtn.addEventListener("click", function (e) {
+            const ytSearchVal = document.querySelector("#ytSearch").value;
+            console.log(ytSearchVal);
 
-            searchButton.addEventListener("click", function () {
-                var searchInput = document.getElementById("ytSearch").value.toLowerCase();
-                var options = document.querySelectorAll(".ytMovie option");
-
-                // Clear previous search results
-                searchResultsList.innerHTML = '';
-
-                options.forEach(function (option) {
-                    var movieTitle = option.textContent.toLowerCase();
-                    var movieId = option.value;
-
-                    // If the movie title contains the search query, create the list item
-                    if (movieTitle.includes(searchInput)) {
-                        var listItem = document.createElement("li");
-                        var select = document.createElement("select");
-                        select.classList.add("ytMovie");
-                        select.name = "ytMovie";
-                        select.innerHTML = '<option value="' + movieId + '">' + option.textContent + '</option>';
-                        listItem.appendChild(select);
-                        searchResultsList.appendChild(listItem);
-                    }
-                });
-            });
+            e.preventDefault(); //検索ボタンの送信をストップしておく。
+            ytSearch(ytSearchVal)
         });
-
 
 
     </script>
