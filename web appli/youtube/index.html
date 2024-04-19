@@ -11,13 +11,58 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #105d59;
+            background-image: url(./image/youtube.png);
         }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        #search-form {
+            display: flex;
+        }
+
+        .search-container {
+            display: flex;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+
+        #ytSearch {
+            padding: 10px 300px 10px 10px;
+            font-size: 16px;
+            border: none;
+            color: #242424;
+        }
+
+        #searchBtn {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: none;
+            background-color: #46908d;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #searchBtn img {
+            width: 50%;
+        }
+
+        #searchBtn:hover {
+            background-color: #105d59;
+        }
+
 
         #player-container {
             max-width: 854px;
             margin: 20px auto;
-            background-color: #000;
             position: relative;
         }
 
@@ -27,21 +72,24 @@
         }
 
         nav {
-            background-color: #fff;
+            margin: auto;
             padding: 10px 20px;
-            color: #606060;
+            background-color: #46908d;
+            color: #fff;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #e0e0e0;
+            font-size: 28px;
+
         }
 
         ul {
             list-style-type: none;
-            margin: 0;
+            margin: auto;
             padding: 0;
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
 
         li {
@@ -55,13 +103,40 @@
         }
 
         select {
-            border: 1px solid #ccc;
+            border: 1px solid #000;
             padding: 5px;
             border-radius: 3px;
-            background-color: #fff;
-            color: #333;
+            background-color: #46908d;
+            color: #000;
             font-size: 14px;
         }
+
+        .ytMovie {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #000;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .ytMovie option {
+            padding: 8px;
+            font-size: 16px;
+            background-color: #105d59;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .ytMovie option:checked {
+            background-color: #093937;
+            color: #fff;
+        }
+
+        .ytMovie option:hover {
+            background-color: #105d59;
+            color: #000;
+        }
+
 
         input[type="range"] {
             width: 100px;
@@ -84,47 +159,116 @@
         #volume-container {
             display: flex;
             align-items: center;
+            font-size: 24px;
+            color: #000;
         }
 
         #volume-label {
+            margin-right: 2px;
+        }
+
+        li img {
+            transition: transform 0.3s ease;
+        }
+
+        li:hover img {
+            transform: scale(1.1);
+        }
+
+        #doSpeed {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+        }
+
+        #doSpeed form {
+            display: flex;
+            align-items: center;
+        }
+
+        #doSpeed input[type="radio"] {
+            display: none;
+        }
+
+        #doSpeed label {
+            padding: 10px;
+            font-size: 16px;
+            color: #000;
+            border: 1px solid #000;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
             margin-right: 5px;
+        }
+
+        #doSpeed label:hover {
+            background-color: #105d59;
+        }
+
+        #doSpeed input[type="radio"]:checked+label {
+            background-color: #105d59;
+            color: #fff;
         }
     </style>
 </head>
 
 <body>
+    <div class="center">
+        <form id="search-form">
+            <div class="search-container">
+                <input type="search" id="ytSearch" value="MR Beast" />
+                <button id="searchBtn"><img src="./image/search.png" alt=""></button>
+            </div>
+        </form>
+    </div>
+
+    </div>
     <div id="player-container">
         <div id="player"></div>
     </div>
     <nav>
         <ul>
-            <li id="doplay">⏸️</li>
-            <li id="dopause">▶️</li>
-            <li id="dostop">🔁</li>
-            <li id="mute">🔇</li>
-            <li id="do10sPrev">⏮️</li>
-            <li id="do10sNext">⏭️</li>
-            <li>
-                <select id="MovieId" class="ytMovie" name="ytMovie">
-                    <option selected>others</option>
-                    <option value="0e3GPea1Tyg">Mr Beast 🔥#1</option>
-                    <option value="zxYjTTXc-J8">Mr Beast 🔥#2</option>
-                    <option value="1WEAJ-DFkHE">Mr Beast 🔥#3</option>
-                    <option value="FM7Z-Xq8Drc">Mr Beast 🔥#4</option>
-                    <option value="iogcY_4xGjo">Mr Beast 🔥#5</option>
-                </select>
-            </li>
+            <li id="doplay"><img src="./image/play.png" alt="play"></li>
+            <li id="dopause"><img src="./image/pause.png" alt="pause"></li>
+            <li id="dostop"><img src="./image/researt.png" alt="restart"></li>
+            <li id="mute"><img src="./image/sound.png" alt="sound"></li>
+            <li id="do10sPrev"><img src="./image/repaly10.png" alt="replay"></li>
+            <li id="do10sNext"><img src="./image/forward10.png" alt="forward"></li>
             <li id="volume-container">
-                <label id="volume-label" for="volume">🔊</label>
+                <label id="volume-label" for="volume"><img src="./image/sound.png"></label>
                 <input type="range" min="0" max="100" name="volume" id="volume" value="50" />
                 <span id="volumeNum">50</span>
+            </li>
+            <li>
+                <form id="doSpeed">
+                    <input type="radio" id="mslow" name="speed" value="0.25" />
+                    <label for="mslow">.25</label>
+                    <input type="radio" id="slow" name="speed" value="0.5" />
+                    <label for="slow">0.5</label>
+                    <input type="radio" id="normal" name="speed" value="1.0" checked />
+                    <label for="normal">1.0</label>
+                    <input type="radio" id="hspeed" name="speed" value="1.5" />
+                    <label for="hspeed">1.5</label>
+                    <input type="radio" id="mhspeed" name="speed" value="2" />
+                    <label for="mhspeed">2.0</label>
+                </form>
+            </li>
+            <li>
+                <select id="MovieId" class="ytMovie" name="ytMovie">
+                    <option value="0e3GPea1Tyg">Mr Beast #1</option>
+                    <option value="zxYjTTXc-J8">Mr Beast #2</option>
+                    <option value="1WEAJ-DFkHE">Mr Beast #3</option>
+                    <option value="FM7Z-Xq8Drc">Mr Beast #4</option>
+                    <option value="iogcY_4xGjo">Mr Beast #5</option>
+                </select>
             </li>
         </ul>
     </nav>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
+
 
     <script>
+        // script src="https://www.youtube.com/iframe_api"
         // 2. This code loads the IFrame Player API code asynchronously.
         // 2. 変数tagにscriptタグを作って入れる。Element=要素、Attrubute=属性
         var tag = document.createElement("script");
@@ -219,14 +363,14 @@
         }
 
         //ミュートイベント
-        let onMuteBtn = document.querySelector("#mute");
+        let onMuteBtn = document.querySelector("#mute img"); // Select the img element inside the li
         onMuteBtn.addEventListener("click", function () {
             onMute();
 
-            if (onMuteBtn.innerText === "🔈") {
-                onMuteBtn.innerText = "🔇";
+            if (onMuteBtn.getAttribute("src") === "./image/sound.png") {
+                onMuteBtn.setAttribute("src", "./image/mute.png");
             } else {
-                onMuteBtn.innerText = "🔈";
+                onMuteBtn.setAttribute("src", "./image/sound.png");
             }
         });
         //10秒前にの関数
@@ -286,6 +430,45 @@
         speedBtn.addEventListener("change", function () {
             //数値でないと効かないので、文字列から数値に変換
             playSpeed(parseFloat(speedBtn.speed.value));
+        });
+        ///search button
+        function ytSearch(val) {
+            const key = "AIzaSyDB96RP_ztKRvXerJcUd4rnOXxhEsXZ6ZM"; //自分のキーに書き換えます。
+            const num = 10;
+            const part = "snippet";
+            const type = "video";
+            const query = val;
+            fetch(
+                `https://www.googleapis.com/youtube/v3/search?type=${type}&part=${part}&maxResults=${num}&key=${key}&q=${query}&playsinline=1`,
+            )
+                .then((data) => data.json())
+                .then((obj) => {
+                    for (let i in obj["items"]) {
+                        //各videoIdとタイトルを取得
+                        console.log(obj["items"][i]["id"]["videoId"]);
+                        console.log(obj["items"][i]["snippet"]["title"]);
+
+                        const selectvideo = document.querySelector(".searchlist");
+
+                        //各videoIdとタイトルを取得して変数に代入
+                        const ytId = obj["items"][i]["id"]["videoId"];
+                        const ytTitle = obj["items"][i]["snippet"]["title"];
+                        //optionを作成して、videoIdとtitleを所定の場所に設置し、要素を追加していく。
+                        const optionTag = document.createElement('option');
+                        optionTag.textContent = ytTitle;
+                        optionTag.setAttribute('value', ytId);
+                        selectvideo.appendChild(optionTag);
+                    }
+                });
+        }
+        ///
+        const ytSearchBtn = document.querySelector("#searchBtn");
+        ytSearchBtn.addEventListener("click", function (e) {
+            const ytSearchVal = document.querySelector("#ytSearch").value;
+            console.log(ytSearchVal);
+
+            e.preventDefault(); //検索ボタンの送信をストップしておく。
+            ytSearch(ytSearchVal)
         });
 
 
